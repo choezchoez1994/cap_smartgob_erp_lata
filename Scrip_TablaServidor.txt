@@ -1,0 +1,23 @@
+-- Table: administracion.servidor
+
+-- DROP TABLE IF EXISTS administracion.servidor;
+
+CREATE TABLE IF NOT EXISTS administracion.servidor
+(
+    id bigint NOT NULL DEFAULT nextval('administracion.servidor_id_seq'::regclass),
+    persona_id bigint NOT NULL,
+    fecha_ingreso date NOT NULL,
+    fecha_salida date,
+    correo_institucional character varying COLLATE pg_catalog."default",
+    estado character varying COLLATE pg_catalog."default",
+    CONSTRAINT servidor_pkey PRIMARY KEY (id),
+    CONSTRAINT servidor_persona_fkey FOREIGN KEY (persona_id)
+        REFERENCES administracion.persona (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE RESTRICT
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS administracion.servidor
+    OWNER to postgres;
