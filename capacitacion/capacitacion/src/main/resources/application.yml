@@ -6,5 +6,5 @@ spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/capacitacion_erp
     username: postgres
-    password: sisapp98
+    password: nohely01.
     driver-class-name: org.postgresql.Driver
